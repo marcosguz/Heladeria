@@ -1,0 +1,30 @@
+<ui:composition 
+    template="../template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form id="fmrProducto">
+            <p:messages id="mensaje"></p:messages>
+            <b:panel>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Tipo Producto"></p:outputLabel>
+                    <p:inputText></p:inputText>
+                    <p:outputLabel value="Nombre Producto"></p:outputLabel>
+                    <p:inputText></p:inputText>
+                    <p:outputLabel value="Tipo Producto"></p:outputLabel>
+                    <p:inputText></p:inputText>
+                </p:panelGrid>
+            </b:panel>
+            <b:panel>
+                <p:dataTable>
+                    
+                </p:dataTable>
+            </b:panel>
+        </h:form> 
+    </ui:define>
+</ui:composition>
+    

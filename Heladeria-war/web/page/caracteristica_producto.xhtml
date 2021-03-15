@@ -1,0 +1,39 @@
+<ui:composition 
+    template="../template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form id="frmCaracteristicaProducto">
+            <p:messages id="mensaje"></p:messages>
+            <b:panel id="bnlCaracteristicaProducto" title="Nuevo">
+                <b:panelGrid columns="2">
+                    <p:outputLabel value="Caracteristica Producto"></p:outputLabel>
+                    <p:selectOneMenu id="option" value="#{caracteristicaProductoControl.idCaracteristica}">
+                        <f:selectItem itemLabel="Seleccione" itemValue=""></f:selectItem>
+                        <f:selectItems value="#{caracteristicaProductoControl.selectItemCaracteristica}" var="item" itemValue="#{item.value}" itemLabel="#{item.label}"></f:selectItems>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Estado"></p:outputLabel>
+                    <p:inputText value="#{caracteristicaControl.caracteristica.estado}"></p:inputText>
+                    <p:commandButton value="Guardar" action="#{caracteristicaControl.guardar()}" update="@form" process="@this" update="@form"></p:commandButton>
+                </b:panelGrid>
+            </b:panel>
+            <b:panel>
+                <p:dataTable value="#{caracteristicaProductoControl.listaCaracteristicaProducto}" var="cp">
+                    <p:column headerText="Caracteristica Producto">
+                        <p:outputLabel value="#{cp.idCaracteristica.nombreCaracteristica}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="Estado">
+                        <p:outputLabel value="#{cp.estadoCaracteristicaProducto}"></p:outputLabel>
+                    </p:column>
+                    <p:column headerText="Actualizar">
+                        <p:commandButton value="Actualizar" action="#{caracteristicaProductoControl.actualizar(caracteristicaProducto)}"></p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </b:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
